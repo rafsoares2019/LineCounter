@@ -13,6 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
         boolean a=true;
+        int cont = 0;
 
         try {
             JFileChooser escolha = new JFileChooser();
@@ -26,9 +27,12 @@ public class Main {
                     while (arquivo.ready()) {
                         String linha = arquivo.readLine();
                         a = r.getlines(linha);
-                        System.out.println(a);
+                        if(a == true){
+                            cont++;
+                        }
                     }
                     arquivo.close();
+                    System.out.println("O arquivo selecionado tem "+ cont + " linhas válidas");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
